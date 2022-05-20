@@ -7,11 +7,12 @@ from pylab import plt
 today = datetime.today().date()
 
 
+# "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv"
+
 @st.cache(allow_output_mutation=True)
 def load_dataset():
     try:
-        df = pd.read_csv(
-            "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv", sep=",")
+        df = pd.read_csv("data/us-counties.csv", sep=",")
         states = list(df['state'].unique())
     except:
         Exception
